@@ -8,12 +8,20 @@
     <!--<script src="router.js"> </script>-->
 
     <script>
-        var author = function () { alert("author"); };
-        var books = function () { alert("books"); };
+        var home = function(){
+            alert('home')
+        }
+        var author = function () {
+            alert("author");
+        };
+        var books = function () {
+            alert("books");
+        };
         var viewBook = function (bookId) {
-            alert("viewBook: bookId is populated: " + bookId);
+            alert( 'bookId---' + bookId);
         };
         var routes = {
+            '/':home,
             '/author': author,
             '/books': books,
             '/books/view/:bookId': viewBook
@@ -26,6 +34,7 @@
 
 <body>
 <ul>
+    <li><a href="#">首页</a></li>
     <li><a href="#/author">#/author</a></li>
     <li><a href="#/books">#/books</a></li>
     <li><a href="#/books/view/1">#/books/view/1</a></li>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dom</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../dist/router.js"> </script>
+    <script>
+        $(function() {
+
+            var author = function () {
+                console.log("author");
+            };
+            var books = function () {
+                console.log("books");
+            };
+
+            var routes = {
+                '/author': author,
+                '/books': books
+            };
+
+            var router = new Router(routes);
+            // 路由触发回调方法
+            var allroutes = function() {
+                var route = window.location.hash.slice(2);
+                var sections = $('section');
+                var section = sections.filter('[data-route=' + route + ']');
+                if (section.length) {
+                    sections.hide(0);
+                    section.fadeIn(250);
+                }
+            };
+            router.config({
+               on: allroutes
+            });
+
+            router.init();
+        });
+    </script>
+</head>
+
+<body>
+<section data-route="author">Author</section>
+<section data-route="books">Book1</section>
+<ul>
+    <li><a href="#/author">#/author</a></li>
+    <li><a href="#/books">#/books</a></li>
+</ul>
+</body>
+</html>

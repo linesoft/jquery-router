@@ -19,7 +19,7 @@ var Router = function (routes) {
 
     this.historySupport = (window.history != null ? window.history.pushState : null) != null
 
-    this.configure();
+    this.config();
     this.mount(routes || {});
 };
 
@@ -133,7 +133,7 @@ Router.prototype.getPath = function () {
 };
 
 
-Router.prototype.configure = function(options) {
+Router.prototype.config = function(options) {
     options = options || {};
     for (var i = 0; i < this.methods.length; i++) {
         this._methods[this.methods[i]] = true;
