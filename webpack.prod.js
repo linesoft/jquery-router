@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var version = require('./package.json').version;
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var UglifyJSPlugin  =  webpack.optimize.UglifyJsPlugin;
 module.exports = {
     entry: './src/index',
     output: {
@@ -17,9 +17,9 @@ module.exports = {
     },
     plugins: [
         new UglifyJSPlugin({
-            mangle: {
-                except: ['$super', '$', 'exports', 'require'],
-            },
+            compress: {
+                warnings: false
+            }
         }),
         new webpack.DefinePlugin({
             __VERSION__: JSON.stringify(version)
