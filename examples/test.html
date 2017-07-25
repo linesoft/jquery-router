@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>路由例子</title>
+
+    <script src="../dist/router.js"> </script>
+    <!--<script src="router.js"> </script>-->
+
+    <script>
+        var author = function () { alert("author"); };
+        var books = function () { alert("books"); };
+        var viewBook = function (bookId) {
+            alert("viewBook: bookId is populated: " + bookId);
+        };
+        var routes = {
+            '/author': author,
+            '/books': books,
+            '/books/view/:bookId': viewBook
+        };
+        var router = Router(routes);
+
+        router.init();
+    </script>
+</head>
+
+<body>
+<ul>
+    <li><a href="#/author">#/author</a></li>
+    <li><a href="#/books">#/books</a></li>
+    <li><a href="#/books/view/1">#/books/view/1</a></li>
+</ul>
+</body>
+</html>
